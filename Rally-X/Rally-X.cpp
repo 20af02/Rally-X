@@ -10,11 +10,20 @@ with SFML.
 ************************************************/
 
 #include <iostream>
-
+#include "Game.h"
 
 int main()
 {
+    Game game;
 
+	try
+	{
+		game.run();
+	}
+	catch (const std::exception&e)
+	{
+		std::cout << e.what() << '\n';
+	}
 
     return 0;
 }
