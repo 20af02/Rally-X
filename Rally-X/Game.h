@@ -1,11 +1,12 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SFML\Graphics.hpp>
-#include <iostream>
-#include "State.h"
-#include <vector>
-#include "GraphicsSettings.h"
+//#include <SFML\Graphics.hpp>
+//#include <vector>
+
+//#include "GraphicsSettings.h"
+//#include "State.h"
+#include "GameState.h"
 
 class Game
 {

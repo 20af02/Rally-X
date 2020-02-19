@@ -1,11 +1,12 @@
 #include "Game.h"
 
+
 Game::Game()
 {
 	this->initVar();
 	this->initWindow();
-	//this->initStateData();
-	//this->initStates();
+	this->initStateData();
+	this->initStates();
 }
 
 Game::~Game()
@@ -42,23 +43,23 @@ void Game::updateEvents()
 void Game::update()
 {
 	this->updateEvents();
-	//
-	//if (!this->states.empty())
-	//{
-	//	this->states.back()->update(this->dt);
-	//	if (this->states.back()->getExit())
-	//	{
-	//		this->states.back()->endState();
-	//		delete this->states.back();
-	//		this->states.pop_back();
-	//	}
-	//}
-	////End Application
-	//else
-	//{
-	//	this->endApplication();
-	//	this->window->close();
-	//}
+	
+	if (!this->states.empty())
+	{
+		this->states.back()->update(this->dt);
+		if (this->states.back()->getExit())
+		{
+			this->states.back()->endState();
+			delete this->states.back();
+			this->states.pop_back();
+		}
+	}
+	//End Application
+	else
+	{
+		this->endApplication();
+		this->window->close();
+	}
 }
 
 void Game::render()
@@ -66,8 +67,8 @@ void Game::render()
 	this->window->clear();
 
 	//Render objects
-	/*if (!this->states.empty())
-		this->states.back()->render();*/
+	if (!this->states.empty())
+		this->states.back()->render();
 
 	this->window->display();
 }
@@ -121,5 +122,6 @@ void Game::initStateData()
 
 void Game::initStates()
 {
+	this->states.push_back(new GameState(&this->stateData));
 	//this->states.push_back(new State())
 }

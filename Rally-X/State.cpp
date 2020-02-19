@@ -1,10 +1,9 @@
 #include "State.h"
 
+
 State::State(State_Data* state_data)
 {
 	this->stateData = state_data;
-	this->window = state_data->window;
-	this->states = state_data->states;
 	this->exit = false;
 	this->keypress = 0.f;
 	this->keypress_MAX =10.f;

@@ -1,9 +1,10 @@
 #include "GraphicsSettings.h"
 
+
 GraphicsSettings::GraphicsSettings()
 {
 	this->windowName = "Rally-X";
-	this->resolution = sf::VideoMode(1920, 1080);
+	this->resolution = sf::VideoMode(228, 224);
 	this->fullscreen = false;
 	this->vSync = false;
 	this->FrameRateLimit = 60;
