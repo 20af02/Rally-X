@@ -4,10 +4,12 @@
 Game::Game()
 {
 	this->initVar();
+	this->initGraphicsSettings();
 	this->initWindow();
 	this->initStateData();
 	this->initStates();
 }
+
 
 Game::~Game()
 {
@@ -20,16 +22,19 @@ Game::~Game()
 	}
 }
 
+
 void Game::endApplication()
 {
 	std::cout << "END_APPLICATION\n";
 }
+
 
 void Game::updateDt()
 {
 	//Time it takes to update & render one frame
 	this->dt = this->clock.restart().asSeconds();
 }
+
 
 void Game::updateEvents()
 {
@@ -40,9 +45,11 @@ void Game::updateEvents()
 	}
 }
 
+
 void Game::update()
 {
 	this->updateEvents();
+	this->updateDt();
 	
 	if (!this->states.empty())
 	{
@@ -62,6 +69,7 @@ void Game::update()
 	}
 }
 
+
 void Game::render()
 {
 	this->window->clear();
@@ -73,16 +81,16 @@ void Game::render()
 	this->window->display();
 }
 
+
 void Game::run()
 {
 	while (this->window->isOpen())
 	{
-		this->updateDt();
-		this->updateEvents();
-		//this->update();
+		this->update();
 		this->render();
 	}
 }
+
 
 void Game::initVar()
 {
@@ -91,6 +99,7 @@ void Game::initVar()
 	this->dt = 0.f;
 	//Gridsize, DO LATER
 }
+
 
 void Game::initGraphicsSettings()
 {
@@ -113,12 +122,14 @@ void Game::initWindow()
 	this->window->setVerticalSyncEnabled(this->gfxSettings.vSync);
 }
 
+
 void Game::initStateData()
 {
 	this->stateData.window = this->window;
 	this->stateData.gfxSettings = &this->gfxSettings;
 	this->stateData.states = &this->states;
 }
+
 
 void Game::initStates()
 {

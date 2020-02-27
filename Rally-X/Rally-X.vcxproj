@@ -153,6 +153,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GraphicsSettings.cpp" />
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="miniMap.cpp" />
     <ClCompile Include="Rally-X.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="State.cpp" />
@@ -162,6 +164,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GraphicsSettings.h" />
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="miniMap.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="State.h" />
@@ -169,9 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Rally-X-SpriteSheet.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

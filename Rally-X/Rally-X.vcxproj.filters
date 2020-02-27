@@ -22,6 +22,9 @@
     <Filter Include="Graphics">
       <UniqueIdentifier>{3356914b-d3f7-424c-b068-1dda4f3bb270}</UniqueIdentifier>
     </Filter>
+    <Filter Include="States\Objects">
+      <UniqueIdentifier>{b692cf54-55f8-483d-acae-0a1051ca20a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Rally-X.cpp">
@@ -44,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>States\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="miniMap.cpp">
+      <Filter>States\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,13 +77,16 @@
     <ClInclude Include="SpriteManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>States\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="miniMap.h">
+      <Filter>States\Objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Rally-X-SpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
