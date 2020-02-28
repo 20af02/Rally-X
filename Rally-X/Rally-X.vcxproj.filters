@@ -25,6 +25,9 @@
     <Filter Include="States\Objects">
       <UniqueIdentifier>{b692cf54-55f8-483d-acae-0a1051ca20a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="States\Graphics">
+      <UniqueIdentifier>{c11f0cd9-e025-42c7-ad7b-8863acf2e20d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Rally-X.cpp">
@@ -45,14 +48,14 @@
     <ClCompile Include="TileMap.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="HUD.cpp">
       <Filter>States\Objects</Filter>
     </ClCompile>
     <ClCompile Include="miniMap.cpp">
       <Filter>States\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>States\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,14 +77,14 @@
     <ClInclude Include="TileMap.h">
       <Filter>Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="HUD.h">
       <Filter>States\Objects</Filter>
     </ClInclude>
     <ClInclude Include="miniMap.h">
       <Filter>States\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>States\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
