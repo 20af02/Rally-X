@@ -7,6 +7,8 @@
 //class GraphicsSettings;
 class State;
 
+
+//Simple Struct for State data
 struct State_Data
 {
 	sf::RenderWindow* window;
@@ -15,6 +17,7 @@ struct State_Data
 };
 
 
+//Default State
 class State
 {
 public:
@@ -31,9 +34,9 @@ public:
 
 	//Functions
 	void endState();
-	virtual void updateKeytime(const float& dt);
+
 		//Virtual
-	
+	virtual void updateKeytime(const float& dt);	
 	virtual void updateInput(const float& dt) = 0;
 	virtual void update(const float& dt) = 0;
 	virtual void render(sf::RenderTarget* target = nullptr) = 0;
@@ -43,6 +46,8 @@ protected:
 	
 	//sf::RenderWindow* window;
 	bool exit;
+
+	//Track keypress time
 	float keypress, keypress_MAX;
 
 private:

@@ -1,20 +1,34 @@
 #include "GameState.h"
 
+
+//Creates a new Gamestate given State data
 GameState::GameState(State_Data* state_data) : State(state_data)
 {	
-	initViews();
+	//Textures
 	initTextures();
-	initPlayer();
-	initPlayerGUI();
-	initTileMap();
 
+	//Graphics
+	initViews();
+	initTileMap();
+	initHUD();
+
+	//Objects
+	initObjManager();
+	initCollisionHandler();
 }
 
+
+//Deletes dynamic Memory
 GameState::~GameState()
 {
 	delete this->tilemap;
+	delete this->objMan;
+	delete this->colisionHandler;
+	delete this->hud;
 }
 
+
+//Updates Views of screen
 void GameState::updateViews()
 {
 
@@ -30,6 +44,8 @@ void GameState::updateViews()
 	
 }
 
+
+//updates input given time differential 
 void GameState::updateInput(const float& dt)
 {
 	if (this->getKeyPressTime())
@@ -47,37 +63,29 @@ void GameState::updateInput(const float& dt)
 }
 
 
-void GameState::updatePlayerInput()
-{
-}
-
-
-void GameState::updatePlayerGUI()
-{
-}
-
-
+//Updates the tilemap
 void GameState::updateTileMap()
 {
 }
 
 
+//Updates behavior 
+void GameState::updateBehavior()
+{
+	this->objMan->updateObjects();
+	//Get input
+
+}
+
+
+//Handles Game Collisions
 void GameState::updateCollision()
 {
+	colisionHandler->handleCollisions();
 }
 
 
-void GameState::updatePlayer()
-{
-}
-
-
-void GameState::updateEnemies()
-{
-}
-
-
-
+//Initializes Player & HUD views
 void GameState::initViews()
 {
 
@@ -96,8 +104,8 @@ void GameState::initViews()
 		)
 	);
 
-	//GUI View
-	this->GUI_View.setSize(
+	//HUD View
+	this->HUD_View.setSize(
 		sf::Vector2f(
 			static_cast<float>(this->stateData->gfxSettings->resolution.width*(7.f/9.f)),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height)
@@ -105,7 +113,7 @@ void GameState::initViews()
 	);
 
 
-	this->GUI_View.setCenter(
+	this->HUD_View.setCenter(
 		sf::Vector2f(
 			static_cast<float>(this->stateData->gfxSettings->resolution.width * (8.f / 9.f)),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height) / 2.f
@@ -113,9 +121,10 @@ void GameState::initViews()
 	);
 
 	//Set rTexture Views
-	this->rTextSprites.setView(this->playerView);
-	this->rTextGUI.setView(this->GUI_View);
+	this->rTextMap.setView(this->playerView);
+	this->rTextHUD.setView(this->HUD_View);
 }
+
 
 
 void GameState::initTextures()
@@ -125,21 +134,7 @@ void GameState::initTextures()
 }
 
 
-void GameState::initPlayer()
-{
-}
-
-
-void GameState::initPlayerGUI()
-{
-}
-
-
-void GameState::initSystems()
-{
-}
-
-
+//Initializes and loads tilemap
 void GameState::initTileMap()
 {
 	std::string temp,
@@ -175,20 +170,49 @@ void GameState::initTileMap()
 }
 
 
+//Initialize HUD
+void GameState::initHUD()
+{
+	this->hud = new HUD(this->objMan);
+}
+
+
+//Initializes object mangaer
+void GameState::initObjManager()
+{
+	this->objMan = new ObjectManager();
+
+	objMan->addObject(player);
+
+	//Add all game objects;
+}
+
+
+//Initializes Collision Handler
+void GameState::initCollisionHandler()
+{
+	this->colisionHandler = new CollisionHandler(this->objMan, level, 24);
+}
+
+
+//Update Game
 void GameState::update(const float& dt)
 {
 	this->updateKeytime(dt);
 	this->updateInput(dt);
+	this->updateBehavior();
 	this->updateViews();
 }
 
+
+//Render Everything
 void GameState::render(sf::RenderTarget* target)
 {
 	if (target == nullptr)
 		target = this->stateData->window;
 	target->clear();
-	this->rTextSprites.clear();
-	this->rTextGUI.clear();
+	this->rTextMap.clear();
+	this->rTextHUD.clear();
 
 	//Tilemap
 	this->tilemap->draw(*this->stateData->window, sf::RenderStates::Default);
@@ -199,12 +223,11 @@ void GameState::render(sf::RenderTarget* target)
 
 
 	//Update render textures
-	this->rTextSprites.display();
-	this->rTextGUI.display();
+	this->rTextMap.display();
+	this->rTextHUD.display();
 	//target->draw(&rTextSprites);
 	
 
 	//rTextGUI->draw(target);
 	//target->draw(this->rTextSprites);
-
 }

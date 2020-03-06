@@ -150,29 +150,50 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="CollisionHandler.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Flag.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GraphicsSettings.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="miniMap.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rally-X.cpp" />
+    <ClCompile Include="Rock.cpp" />
+    <ClCompile Include="Smoke.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="TileMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="CollisionHandler.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Flag.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GraphicsSettings.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="miniMap.h" />
+    <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Rock.h" />
+    <ClInclude Include="Smoke.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Rally-X-SpriteSheet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\graphics.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

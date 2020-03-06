@@ -1,6 +1,7 @@
 #include "Game.h"
 
 
+//Initializes Game
 Game::Game()
 {
 	this->initVar();
@@ -11,6 +12,7 @@ Game::Game()
 }
 
 
+//Delete dynamic Memeory
 Game::~Game()
 {
 	delete this->window;
@@ -23,12 +25,14 @@ Game::~Game()
 }
 
 
+//Ends Application
 void Game::endApplication()
 {
 	std::cout << "END_APPLICATION\n";
 }
 
 
+//Update Clock
 void Game::updateDt()
 {
 	//Time it takes to update & render one frame
@@ -36,6 +40,7 @@ void Game::updateDt()
 }
 
 
+//Update SFML Events
 void Game::updateEvents()
 {
 	while (this->window->pollEvent(this->sf_event))
@@ -46,6 +51,7 @@ void Game::updateEvents()
 }
 
 
+//Update current state
 void Game::update()
 {
 	this->updateEvents();
@@ -70,6 +76,7 @@ void Game::update()
 }
 
 
+//Render
 void Game::render()
 {
 	this->window->clear();

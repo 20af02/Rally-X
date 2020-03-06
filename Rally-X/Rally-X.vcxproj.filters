@@ -16,17 +16,23 @@
     <Filter Include="States">
       <UniqueIdentifier>{616ae686-9076-4117-a201-d02e809e4dac}</UniqueIdentifier>
     </Filter>
-    <Filter Include="States\GameStates">
-      <UniqueIdentifier>{f3c36e9f-de26-41b9-8948-c3cb62e674da}</UniqueIdentifier>
+    <Filter Include="GraphicManagment">
+      <UniqueIdentifier>{c8cc99c7-2a19-492e-944b-ae935481ca81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Graphics">
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{3d768049-d4cc-4f15-8119-e14cc9245076}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Cars">
+      <UniqueIdentifier>{66c93b55-3838-44dc-b638-cce0662c8c45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Management">
+      <UniqueIdentifier>{29f1c5db-6e59-4792-8272-abeaebbe914e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TileMap">
       <UniqueIdentifier>{3356914b-d3f7-424c-b068-1dda4f3bb270}</UniqueIdentifier>
     </Filter>
-    <Filter Include="States\Objects">
-      <UniqueIdentifier>{b692cf54-55f8-483d-acae-0a1051ca20a3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="States\Graphics">
-      <UniqueIdentifier>{c11f0cd9-e025-42c7-ad7b-8863acf2e20d}</UniqueIdentifier>
+    <Filter Include="Settings">
+      <UniqueIdentifier>{6d3699d8-a95b-4548-9115-2e15fa5668e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,23 +45,50 @@
     <ClCompile Include="State.cpp">
       <Filter>States</Filter>
     </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>States\GameStates</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsSettings.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="TileMap.cpp">
-      <Filter>Graphics</Filter>
+      <Filter>TileMap</Filter>
     </ClCompile>
     <ClCompile Include="HUD.cpp">
-      <Filter>States\Objects</Filter>
+      <Filter>GraphicManagment</Filter>
     </ClCompile>
     <ClCompile Include="miniMap.cpp">
-      <Filter>States\Objects</Filter>
+      <Filter>GraphicManagment</Filter>
     </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
-      <Filter>States\Graphics</Filter>
+      <Filter>GraphicManagment</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>States</Filter>
+    </ClCompile>
+    <ClCompile Include="Flag.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Rock.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Smoke.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>GameObjects\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>GameObjects\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>GameObjects\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionHandler.cpp">
+      <Filter>GameObjects\Management</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectManager.cpp">
+      <Filter>GameObjects\Management</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsSettings.cpp">
+      <Filter>GraphicManagment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,31 +98,63 @@
     <ClInclude Include="State.h">
       <Filter>States</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>States\GameStates</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicsSettings.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="TileMap.h">
-      <Filter>Graphics</Filter>
+      <Filter>TileMap</Filter>
     </ClInclude>
     <ClInclude Include="HUD.h">
-      <Filter>States\Objects</Filter>
+      <Filter>GraphicManagment</Filter>
     </ClInclude>
     <ClInclude Include="miniMap.h">
-      <Filter>States\Objects</Filter>
+      <Filter>GraphicManagment</Filter>
     </ClInclude>
     <ClInclude Include="SpriteManager.h">
-      <Filter>States\Graphics</Filter>
+      <Filter>GraphicManagment</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>States</Filter>
+    </ClInclude>
+    <ClInclude Include="Smoke.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Flag.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rock.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>GameObjects\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>GameObjects\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>GameObjects\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionHandler.h">
+      <Filter>GameObjects\Management</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectManager.h">
+      <Filter>GameObjects\Management</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsSettings.h">
+      <Filter>GraphicManagment</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resources\Images\Rally-X-SpriteSheet.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\graphics.ini">
+      <Filter>Settings</Filter>
+    </None>
   </ItemGroup>
 </Project>

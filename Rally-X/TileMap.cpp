@@ -10,6 +10,7 @@ TileMap::~TileMap()
 }
 
 
+//Returns true if a tilemap is loaded given a filename, tilesize, tileArray of inputs, rotations of array, and bounds
 bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int* tiles, const int* rotations, unsigned int width, unsigned int height, int x, int y)
 {
 	int tileNum = 0,
@@ -58,6 +59,7 @@ bool TileMap::load(const std::string& tileset, sf::Vector2u tileSize, const int*
 }
 
 
+//Draws a Tilemap to a rendertarget
 void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 {
@@ -72,6 +74,7 @@ void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 }
 
 
+//Rotates q quad given a rotation count, index, tilesize, and tile num
 void TileMap::setRotation(sf::Vertex* quad, int rot, int tu, int tv, sf::Vector2u tileSize, int tileNumber)
 {
 	sf::Vector2f topLeft(tu * tileSize.x, tv * tileSize.y);
