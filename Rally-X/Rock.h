@@ -4,7 +4,7 @@
 
 #include "GameObject.h"
 
-
+//Rock Object
 class Rock: public GameObject
 {
 public:

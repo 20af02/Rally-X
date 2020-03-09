@@ -51,13 +51,14 @@ void GameState::updateInput(const float& dt)
 	if (this->getKeyPressTime())
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			std::cout << "W\n";
+			this->playerView.move(0.f, -1.f);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-			std::cout << "S\n";
+			this->playerView.move(0.f, 1.f);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			std::cout << "A\n";
+			this->playerView.move(-1.f, 0.f);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			std::cout << "D\n";
+			this->playerView.move(1.f, 0.f);
+
 	}
 
 }
@@ -92,7 +93,7 @@ void GameState::initViews()
 	//Player View
 	this->playerView.setSize(
 		sf::Vector2f(
-			static_cast<float>(this->stateData->gfxSettings->resolution.width *(2.f/9.f)),
+			static_cast<float>(this->stateData->gfxSettings->resolution.width) * (7.f/9.f),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height)
 		)
 	);
@@ -104,10 +105,13 @@ void GameState::initViews()
 		)
 	);
 
+	this->playerView.setViewport(sf::FloatRect(0.f, 0.f, 7.f / 9.f, 1.f));
+	this->playerView.zoom(1.f/4.f);
+
 	//HUD View
 	this->HUD_View.setSize(
 		sf::Vector2f(
-			static_cast<float>(this->stateData->gfxSettings->resolution.width*(7.f/9.f)),
+			static_cast<float>(this->stateData->gfxSettings->resolution.width*(2.f/9.f)),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height)
 		)
 	);
@@ -120,9 +124,8 @@ void GameState::initViews()
 		)
 	);
 
-	//Set rTexture Views
-	this->rTextMap.setView(this->playerView);
-	this->rTextHUD.setView(this->HUD_View);
+	this->HUD_View.setViewport(sf::FloatRect(7.f / 9.f, 0.f, 1.f, 1.f));
+
 }
 
 
@@ -210,24 +213,12 @@ void GameState::render(sf::RenderTarget* target)
 {
 	if (target == nullptr)
 		target = this->stateData->window;
-	target->clear();
-	this->rTextMap.clear();
-	this->rTextHUD.clear();
 
 	//Tilemap
-	this->tilemap->draw(*this->stateData->window, sf::RenderStates::Default);
+	target->setView(this->playerView);
+	this->tilemap->draw(*target, sf::RenderStates::Default);
 
-
-	//Set texture to player view
-	//this->renderTexture.setView(this->playerView);
-
-
-	//Update render textures
-	this->rTextMap.display();
-	this->rTextHUD.display();
-	//target->draw(&rTextSprites);
-	
-
-	//rTextGUI->draw(target);
-	//target->draw(this->rTextSprites);
+	//HUD
+	target->setView(this->HUD_View);
+	this->tilemap->draw(*target, sf::RenderStates::Default);
 }

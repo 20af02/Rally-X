@@ -51,7 +51,7 @@ void Game::updateEvents()
 }
 
 
-//Update current state
+//Update current game state
 void Game::update()
 {
 	this->updateEvents();
@@ -76,7 +76,7 @@ void Game::update()
 }
 
 
-//Render
+//render all objects to window
 void Game::render()
 {
 	this->window->clear();
@@ -89,6 +89,7 @@ void Game::render()
 }
 
 
+//Main running loop
 void Game::run()
 {
 	while (this->window->isOpen())
@@ -99,6 +100,7 @@ void Game::run()
 }
 
 
+//Initializes member variables
 void Game::initVar()
 {
 	this->window = nullptr;
@@ -108,12 +110,14 @@ void Game::initVar()
 }
 
 
+//loads graphic setings from file
 void Game::initGraphicsSettings()
 {
 	this->gfxSettings.loadFromFile("Config/graphics.ini");
 }
 
 
+//Initializes window
 void Game::initWindow()
 {
 	if (this->gfxSettings.fullscreen)
@@ -130,6 +134,7 @@ void Game::initWindow()
 }
 
 
+//Initializes state data
 void Game::initStateData()
 {
 	this->stateData.window = this->window;
@@ -138,8 +143,8 @@ void Game::initStateData()
 }
 
 
+//Initializes states
 void Game::initStates()
 {
 	this->states.push_back(new GameState(&this->stateData));
-	//this->states.push_back(new State())
 }

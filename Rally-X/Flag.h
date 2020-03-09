@@ -2,11 +2,10 @@
 #define FLAG_H
 
 
-
-
 #include "GameObject.h"
 
 
+//Flag object
 class Flag: public GameObject
 {
 public:

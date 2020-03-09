@@ -16,7 +16,7 @@ public:
 
 private:
 	void setRotation(sf::Vertex* quad, int rot, int tu, int tv,
-		sf::Vector2u tileSize, int tileNumber);
+	sf::Vector2u tileSize, int tileNumber);
 	sf::VertexArray m_verticies;
 	sf::Texture m_tileset;
 	std::vector<sf::Texture> textures;

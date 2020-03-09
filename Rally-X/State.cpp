@@ -30,7 +30,7 @@ const bool State::getKeyPressTime()
 		this->keypress = 0.f;
 		return true;
 	}
-	return false;
+	return true;
 }
 
 

@@ -23,6 +23,7 @@ void Flag::update(int type)
 	}
 }
 
+
 bool Flag::isSpecial()
 {
 	return special;

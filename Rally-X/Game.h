@@ -8,6 +8,7 @@
 //#include "State.h"
 #include "GameState.h"
 
+//Main game class
 class Game
 {
 public:
@@ -39,10 +40,10 @@ private:
 	sf::Clock clock;
 	float dt;
 
+	//Container for states
 	std::vector<State*> states;
 
 	//Initialization Helper
-
 	void initVar();
 	void initGraphicsSettings();
 	void initWindow();

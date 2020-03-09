@@ -14,6 +14,7 @@
 #include <sstream>
 
 
+//Game state
 class GameState: public State
 {
 public:
@@ -37,9 +38,6 @@ private:
 	sf::View playerView;
 	sf::View HUD_View;
 
-	//RenderTextures
-	sf::RenderTexture rTextMap, rTextHUD;
-	sf::Sprite renderSprite;
 
 	//HUD
 	HUD* hud;
@@ -48,6 +46,7 @@ private:
 	TileMap* tilemap;
 	int level[2688];
 	int rots[2688];
+
 
 	//Objects
 	CollisionHandler* colisionHandler;

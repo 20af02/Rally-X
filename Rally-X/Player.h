@@ -3,6 +3,7 @@
 #include "Car.h"
 
 
+//Player class
 class Player: public Car
 {
 public:
@@ -10,7 +11,7 @@ public:
 	~Player();
 
 	void update(int type = 0);
-	int getFuel();
+	double getFuel();
 	int getScore();
 	int getLives();
 

@@ -103,7 +103,7 @@ void Player::update(int type)
 	}
 }
 
-int Player::getFuel()
+double Player::getFuel()
 {
 	return fuelLevel;
 }

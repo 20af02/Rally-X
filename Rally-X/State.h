@@ -1,12 +1,13 @@
 #ifndef STATE_H
 #define STATE_H
+
+
 #include "GraphicsSettings.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 
-//class GraphicsSettings;
-class State;
 
+class State;
 
 //Simple Struct for State data
 struct State_Data
