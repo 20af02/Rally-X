@@ -111,7 +111,7 @@ void GameState::initViews()
 	//HUD View
 	this->HUD_View.setSize(
 		sf::Vector2f(
-			static_cast<float>(this->stateData->gfxSettings->resolution.width*(2.f/9.f)),
+			static_cast<float>(this->stateData->gfxSettings->resolution.width),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height)
 		)
 	);
@@ -119,12 +119,12 @@ void GameState::initViews()
 
 	this->HUD_View.setCenter(
 		sf::Vector2f(
-			static_cast<float>(this->stateData->gfxSettings->resolution.width * (8.f / 9.f)),
+			static_cast<float>(this->stateData->gfxSettings->resolution.width /2.f),
 			static_cast<float>(this->stateData->gfxSettings->resolution.height) / 2.f
 		)
 	);
+	this->HUD_View.zoom(1.f / 4.f);
 
-	this->HUD_View.setViewport(sf::FloatRect(7.f / 9.f, 0.f, 1.f, 1.f));
 
 }
 
@@ -176,7 +176,7 @@ void GameState::initTileMap()
 //Initialize HUD
 void GameState::initHUD()
 {
-	this->hud = new HUD(this->objMan);
+	this->hud = new HUD(this->objMan, this->stateData->gfxSettings);
 }
 
 
@@ -219,6 +219,6 @@ void GameState::render(sf::RenderTarget* target)
 	this->tilemap->draw(*target, sf::RenderStates::Default);
 
 	//HUD
-	target->setView(this->HUD_View);
-	this->tilemap->draw(*target, sf::RenderStates::Default);
+	//target->setView(this->HUD_View);
+	//this->tilemap->draw(*target, sf::RenderStates::Default);
 }

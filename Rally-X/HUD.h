@@ -9,11 +9,12 @@
 class HUD
 {
 public:
-	HUD(ObjectManager*);
+	HUD(ObjectManager*, GraphicsSettings*);
 	~HUD();
 	void draw(sf::RenderTarget& target) const;
 private:
 	ObjectManager* objMan_;
+	GraphicsSettings* graphicsSettings_;
 	miniMap* miniMap_;
 };
 
