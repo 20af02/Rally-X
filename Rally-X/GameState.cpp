@@ -219,7 +219,7 @@ void GameState::render(sf::RenderTarget* target)
 	this->tilemap->draw(*target, sf::RenderStates::Default);
 
 	//HUD
-	target->setView(stateData->window->getDefaultView);
+	target->setView(stateData->window->getDefaultView());
 	//target->setView(this->HUD_View);
-	//this->tilemap->draw(*target, sf::RenderStates::Default);
+	hud->draw(*target);
 }

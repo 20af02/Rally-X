@@ -16,5 +16,7 @@ HUD::~HUD()
 //Draws a Tilemap to a rendertarget
 void HUD::draw(sf::RenderTarget& target) const
 {
+	miniMap_->draw(target);
 
+	return;
 }
