@@ -7,14 +7,16 @@ GameState::GameState(State_Data* state_data) : State(state_data)
 	//Textures
 	initTextures();
 
+	//Objects
+	initObjManager();
+	initCollisionHandler();
+
 	//Graphics
 	initViews();
 	initTileMap();
 	initHUD();
 
-	//Objects
-	initObjManager();
-	initCollisionHandler();
+
 }
 
 
