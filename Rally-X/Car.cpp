@@ -4,15 +4,14 @@ Car::Car()
 {
 	state = 0;
 	active = 1;
-	direction = 1;
 	speed = 2.f;
-	stateTick = 0;
-	animationState = 0;
 }
+
 
 Car::~Car()
 {
 }
+
 
 int Car::getDir()
 {
@@ -27,5 +26,9 @@ int Car::getAnimationState()
 
 void Car::update(int type)
 {
+}
 
+int Car::getStateTick()
+{
+	return stateTick;
 }

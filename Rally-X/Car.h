@@ -12,9 +12,10 @@ public:
 	int getDir();
 	int getAnimationState();
 	virtual void update(int type = 0);
+	int getStateTick();
 protected:
 	float speed;
-	int direction, animationState,stateTick;
+	int direction, animationState, stateTick;
 };
 
 #endif // !CAR_H

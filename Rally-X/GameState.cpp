@@ -51,16 +51,23 @@ void GameState::updateInput(const float& dt)
 	if (this->getKeyPressTime())
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			this->playerView.move(0.f, -1.f);
+		{
+			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(6);
+			return;
+		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-			this->playerView.move(0.f, 1.f);
+		{
+			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(7);
+			return;
+		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			this->playerView.move(-1.f, 0.f);
+		{
+			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(8);
+			return;
+		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			this->playerView.move(1.f, 0.f);
-
+			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(9);
 	}
-
 }
 
 
@@ -106,7 +113,7 @@ void GameState::initViews()
 	);
 
 	this->playerView.setViewport(sf::FloatRect(0.f, 0.f, 7.f / 9.f, 1.f));
-	this->playerView.zoom(1.f/4.f);
+	//this->playerView.zoom(1.f/4.f);
 
 	//HUD View
 	this->HUD_View.setSize(
@@ -217,6 +224,7 @@ void GameState::render(sf::RenderTarget* target)
 	//Tilemap
 	target->setView(this->playerView);
 	this->tilemap->draw(*target, sf::RenderStates::Default);
+
 
 	//HUD
 	target->setView(this->HUD_View);

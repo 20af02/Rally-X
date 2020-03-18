@@ -23,6 +23,8 @@ public:
 	//defualt update
 	void updateObjects();
 
+	void drawObjects(sf::RenderTarget& target, sf::RenderStates states = sf::RenderStates::Default) const;
+
 
 private:
 	std::vector<GameObject*> objects[5];
