@@ -15,12 +15,18 @@ GameState::GameState(State_Data* state_data) : State(state_data)
 	//Objects
 	initObjManager();
 	initCollisionHandler();
+
+	//Music
+	initMusic();
 }
 
 
 //Deletes dynamic Memory
 GameState::~GameState()
 {
+	music->stop();
+	delete music;
+
 	delete this->tilemap;
 	delete this->objMan;
 	delete this->colisionHandler;
@@ -195,6 +201,17 @@ void GameState::initObjManager()
 void GameState::initCollisionHandler()
 {
 	this->colisionHandler = new CollisionHandler(this->objMan, level, 24);
+}
+
+
+//Initialize and start music
+void GameState::initMusic()
+{
+	music = new sf::Music();
+	if (!music->openFromFile("Resources/Sounds/Rally-X-OST-Racing.ogg"))
+		std::cout << "Error: Unable to load music from file!" << std::endl;
+	music->setLoop(true);
+	music->play();
 }
 
 

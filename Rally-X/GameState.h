@@ -8,6 +8,7 @@
 #include "HUD.h"
 #include <SFML/Main.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -38,6 +39,8 @@ private:
 	sf::View playerView;
 	sf::View HUD_View;
 
+	//Music
+	sf::Music* music = nullptr;
 
 	//HUD
 	HUD* hud;
@@ -64,6 +67,9 @@ private:
 	//Objects
 	void initObjManager();
 	void initCollisionHandler();
+
+	//Music
+	void initMusic();
 	
 };
 
