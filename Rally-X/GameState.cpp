@@ -52,21 +52,27 @@ void GameState::updateInput(const float& dt)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 		{
+			this->playerView.move(0.f, -1.f);
 			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(6);
 			return;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 		{
+			this->playerView.move(0.f, 1.f);
 			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(7);
 			return;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 		{
+			this->playerView.move(-1.f, 0.f);
 			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(8);
 			return;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			this->playerView.move(1.f, 0.f);
 			dynamic_cast<Player*>(&(this->objMan->getObject(ObjectType::player, 0)))->update(9);
+		}
 	}
 }
 

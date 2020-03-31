@@ -17,7 +17,8 @@ public:
 
 private:
 	double fuelLevel;
-	int score, lives;
+	int score, lives, flagCount;
+	bool specialActive;
 };
 
 #endif // !PLAYER_H

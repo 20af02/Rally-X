@@ -2,7 +2,6 @@
 
 GameObject::GameObject()
 {
-	state = 0;
 	active = 1;
 }
 

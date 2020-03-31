@@ -5,7 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "SpriteManager.h"
 
-enum ObjectType{player, enemy, flag, smoke, rock};
+enum ObjectType{player, enemy, flag, smoke, rock, none = -1};
 
 class GameObject: public sf::Sprite
 {
@@ -15,7 +15,6 @@ public:
 
 	virtual void update(int type= 0) = 0;
 protected:
-	int state;
 	bool active;
 
 private:

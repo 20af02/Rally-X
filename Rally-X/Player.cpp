@@ -6,7 +6,8 @@ Player::Player(): Car()
 	lives = 3;
 	score = 0;
 	direction = animationState = stateTick = 0;
-	
+	specialActive = false;
+	flagCount = 0;
 }
 
 Player::~Player()
@@ -73,12 +74,12 @@ Turning going RIGHT:
 
 void Player::update(int type)
 {
+	this->state = Up;
 	//Update input
 	switch (type)
 	{
 	case 0:
 		break;
-
 
 	//Walls
 		//Collision with wall up
